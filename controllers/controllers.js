@@ -16,6 +16,10 @@ module.exports = (db) => {
     response.render('home');
   };
 
+  let showNewArticleControllerCallback = (request,response) => {
+    response.render('newarticle');
+  };
+
 
 
 /**
@@ -24,8 +28,8 @@ module.exports = (db) => {
  * ===========================================
  */
   return {
-  //index: indexControllerCallback,
-    showHomePage: showHomePageControllerCallback
+    showHomePage: showHomePageControllerCallback,
+    showNewArticle: showNewArticleControllerCallback
   };
 
 }

@@ -1,6 +1,6 @@
 var React = require("react");
 
-class Article extends React.Component {
+class Articles extends React.Component {
   render() {
     return (
       <html>
@@ -32,7 +32,7 @@ class Article extends React.Component {
                     <a className="nav-link" href="#">Register</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Create Article</a>
+                    <a className="nav-link" href="/articles/new">Create Article</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#">Logout</a>
@@ -56,4 +56,4 @@ class Article extends React.Component {
   }
 }
 
-module.exports = Article;
+module.exports = Articles;

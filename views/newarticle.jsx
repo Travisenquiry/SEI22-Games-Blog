@@ -8,7 +8,7 @@ class Newarticle extends React.Component {
           <meta charset="utf-8"></meta>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-          <link rel="stylesheet" href="style.css"></link>
+          <link rel="stylesheet" href="../style.css"></link>
         </head>
         <body>
           <div className="container">
@@ -32,7 +32,7 @@ class Newarticle extends React.Component {
                     <a className="nav-link" href="#">Register</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Create Article</a>
+                    <a className="nav-link" href="/articles/new">Create Article</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#">Logout</a>
@@ -40,11 +40,27 @@ class Newarticle extends React.Component {
                 </ul>
               </div>
             </nav>
-            <div className="article1 row justify-content-center">
-              Hello
+            <div className="header row justify-content-center">
+              <h1>Create a new Article</h1>
             </div>
-            <div className="article2 row justify-content-center">
-              hello2
+            <div className="new-article-form row justify-content-center">
+              <form method="POST" action="/articles">
+                <div>Title</div>
+                <div>
+                  <input type="text" name="title"></input>
+                </div>
+                <div>Banner image link</div>
+                <div>
+                  <input type="text" name="image"></input>
+                </div>
+                <div>
+                  <div>Content</div>
+                  <textarea rows="10" cols="80" type="text" id="article-content" name="content"></textarea>
+                </div>
+                <div>
+                  <input type="submit" value="submit"></input>
+                </div>
+              </form>
             </div>
           </div>
           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
