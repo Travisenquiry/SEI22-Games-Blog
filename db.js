@@ -64,7 +64,7 @@ pool.on('error', function (err) {
 
 const allModelsFunction = require('./models/models');
 
-const ModelsObject = allModelsModelsFunction( pool );
+const modelsObject = allModelsModelsFunction( pool );
 
 
 
@@ -95,5 +95,5 @@ module.exports = {
    */
 
   // users: userModelsObject,
-  models: ModelsObject
+  models: modelsObject
 };
