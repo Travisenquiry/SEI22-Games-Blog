@@ -12,14 +12,20 @@ module.exports = (db) => {
       });
   };*/
 
+  let showHomePageControllerCallback = (request, response) =>  {
+    response.render('home');
+  };
 
-  /**
-   * ===========================================
-   * Export controller functions as a module
-   * ===========================================
-   */
+
+
+/**
+ * ===========================================
+ * Export controller functions as a module
+ * ===========================================
+ */
   return {
-    //index: indexControllerCallback,
+  //index: indexControllerCallback,
+    showHomePage: showHomePageControllerCallback
   };
 
 }
