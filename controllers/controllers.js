@@ -20,6 +20,10 @@ module.exports = (db) => {
     response.render('newarticle');
   };
 
+  let submitNewArticleControllerCallback = (request, response) => {
+
+  };
+
 
 
 /**

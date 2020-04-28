@@ -44,7 +44,7 @@ class Newarticle extends React.Component {
               <h1>Create a new Article</h1>
             </div>
             <div className="new-article-form row justify-content-center">
-              <form method="POST" action="/articles">
+              <form method="POST" action="/">
                 <div>Title</div>
                 <div>
                   <input type="text" name="title"></input>

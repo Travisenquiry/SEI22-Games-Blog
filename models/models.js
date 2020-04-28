@@ -32,7 +32,12 @@ module.exports = (pool) => {
     });
   }; */
 
+  let submitNewArticle = (request, response, callback) => {
+
+  };
+
   return {
     //getAll:getAll,
+    submitNewArticle: submitNewArticle
   };
 };
