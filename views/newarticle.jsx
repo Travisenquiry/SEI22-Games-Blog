@@ -1,6 +1,6 @@
 var React = require("react");
 
-class Login extends React.Component {
+class Newarticle extends React.Component {
   render() {
     return (
       <html>
@@ -56,4 +56,4 @@ class Login extends React.Component {
   }
 }
 
-module.exports = Login;
+module.exports = Newarticle;
