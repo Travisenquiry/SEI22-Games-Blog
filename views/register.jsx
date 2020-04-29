@@ -26,26 +26,37 @@ class Register extends React.Component {
                     <a className="nav-link" href="/">Home</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Login</a>
+                    <a className="nav-link" href="/login">Login</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Register</a>
+                    <a className="nav-link" href="/register">Register</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="/articles/new">Create Article</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Logout</a>
+                    <a className="nav-link" href="/logout">Logout</a>
                   </li>
                 </ul>
               </div>
             </nav>
-            <div className="article1 row justify-content-center">
-              Hello
+            <div className="row justify-content-center">
+              <h2>Register Account</h2>
             </div>
-            <div className="article2 row justify-content-center">
-              hello2
-            </div>
+            <div className="row justify-content-center">
+              <form method="POST" action="/register">
+                <div>
+                  Username:
+                  <input type="text" name="username"></input>
+                </div>
+                <div>
+                  Password:
+                  <input type="text" name="password"></input>
+                </div>
+                <div className="row justify-content-center">
+                  <input type="submit" value="Register"></input>
+                </div>
+              </form>
           </div>
           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

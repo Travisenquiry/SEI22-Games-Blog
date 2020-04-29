@@ -26,10 +26,10 @@ class Articles extends React.Component {
                     <a className="nav-link" href="/">Home</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Login</a>
+                    <a className="nav-link" href="/login">Login</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Register</a>
+                    <a className="nav-link" href="/register">Register</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="/articles/new">Create Article</a>

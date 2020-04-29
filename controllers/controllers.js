@@ -24,6 +24,13 @@ module.exports = (db) => {
 
   };
 
+  let showLoginPageControllerCallback = (request, response) => {
+    response.render('login');
+  };
+
+  let showRegisterPageControllerCallback = (request, response) => {
+    response.render('register');
+  };
 
 
 /**
@@ -33,7 +40,9 @@ module.exports = (db) => {
  */
   return {
     showHomePage: showHomePageControllerCallback,
-    showNewArticle: showNewArticleControllerCallback
+    showNewArticle: showNewArticleControllerCallback,
+    showLoginPage: showLoginPageControllerCallback,
+    showRegisterPage: showRegisterPageControllerCallback
   };
 
 }
