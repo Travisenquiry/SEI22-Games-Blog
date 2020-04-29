@@ -12,6 +12,7 @@ module.exports = (db) => {
       });
   };*/
 
+//All GET controllers
   let getHomePageControllerCallback = (request, response) =>  {
     response.render('home');
   };
@@ -19,10 +20,6 @@ module.exports = (db) => {
   let getNewArticlePageControllerCallback = (request,response) => {
     response.render('newarticle');
   };
-
-  /*let submitNewArticleControllerCallback = (request, response) => {
-
-  };*/
 
   let getLoginPageControllerCallback = (request, response) => {
     response.render('login');
@@ -32,6 +29,8 @@ module.exports = (db) => {
     response.render('register');
   };
 
+
+//All POST controllers
   let postRegisterPageControllerCallback = (request,response) => {
     db.models.postRegisterPage(request, response, (error, result) => {
       if(error) {
@@ -45,6 +44,25 @@ module.exports = (db) => {
     });
   };
 
+  let postLoginPageControllerCallback = (request, response) => {
+    db.models.postLoginPage(request, response, (error, result) => {
+      if(error) {
+        console.log('Query error', error.message);
+        response.send("query, error");
+      }else {
+        console.log(result);
+        if(result === null){
+          response.redirect('/login');
+        }else {
+          response.cookie('username', result.rows[0].username);
+          response.cookie('userstatus', result.rows[0].status);
+          response.redirect('/');
+        }
+      }
+
+    });
+  };
+
 /**
  * ===========================================
  * Export controller functions as a module
@@ -55,7 +73,8 @@ module.exports = (db) => {
     getNewArticlePage: getNewArticlePageControllerCallback,
     getLoginPage: getLoginPageControllerCallback,
     getRegisterPage: getRegisterPageControllerCallback,
-    postRegisterPage: postRegisterPageControllerCallback
+    postRegisterPage: postRegisterPageControllerCallback,
+    postLoginPage: postLoginPageControllerCallback
   };
 
 }

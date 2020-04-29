@@ -23,6 +23,7 @@ module.exports = (app, allModels) => {
 
   //All POST routes
   app.post('/register', controllerCallbacks.postRegisterPage);
+  app.post('/login', controllerCallbacks.postLoginPage);
   //app.post('/', controllerCallBacks.submitNewArticle);
 
   //app.get('/pokemons', pokemonControllerCallbacks.index);

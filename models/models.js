@@ -58,9 +58,24 @@ module.exports = (pool, sha256) => {
     });
   };
 
+  let postLoginPage = (request, response, callback) => {
+    let passwordHashed = sha256(request.body.password);
+    let queryString = "SELECT * FROM users WHERE username = '" + request.body.username + "' AND password = '" + passwordHashed + "'";
+    pool.query(queryString, (error, result) => {
+      if(error) {
+        callback(error, null);
+      }else if(result.rows.length > 0) {
+        callback(null, result);
+      }else {
+        callback(null, null);
+      }
+    });
+  };
+
   return {
     //getAll:getAll,
     //postNewArticlePage: postNewArticlePage,
-    postRegisterPage: postRegisterPage
+    postRegisterPage: postRegisterPage,
+    postLoginPage: postLoginPage
   };
 };
