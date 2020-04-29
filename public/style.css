@@ -2,6 +2,24 @@
 
 }
 
+.link-button {
+  background: none;
+  border: none;
+  color: #999da0;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 8px 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.link-button:focus {
+  outline: none;
+}
+.link-button:hover {
+  color:#b9bec2;
+}
+
 body {
 
 }

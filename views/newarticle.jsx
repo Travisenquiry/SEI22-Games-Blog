@@ -35,7 +35,12 @@ class Newarticle extends React.Component {
                     <a className="nav-link" href="/articles/new">Create Article</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Logout</a>
+                    <form method="POST" action="/logout">
+                      <div>
+                        <input type="hidden" name="extra_logout_param"></input>
+                      </div>
+                      <input type="submit" className="nav-item link-button" value="Logout"></input>
+                    </form>
                   </li>
                 </ul>
               </div>
