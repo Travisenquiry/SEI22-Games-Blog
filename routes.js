@@ -16,12 +16,13 @@ module.exports = (app, allModels) => {
   const controllerCallbacks = require('./controllers/controllers')(allModels);
 
   //All GET routes
-  app.get('/articles/new', controllerCallbacks.showNewArticle);
-  app.get('/login', controllerCallbacks.showLoginPage);
-  app.get('/register', controllerCallbacks.showRegisterPage);
-  app.get('/', controllerCallbacks.showHomePage);
+  app.get('/articles/new', controllerCallbacks.getNewArticlePage);
+  app.get('/login', controllerCallbacks.getLoginPage);
+  app.get('/register', controllerCallbacks.getRegisterPage);
+  app.get('/', controllerCallbacks.getHomePage);
 
   //All POST routes
+  app.post('/register', controllerCallbacks.postRegisterPage);
   //app.post('/', controllerCallBacks.submitNewArticle);
 
   //app.get('/pokemons', pokemonControllerCallbacks.index);

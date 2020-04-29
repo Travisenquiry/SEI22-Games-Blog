@@ -41,7 +41,7 @@ class Newarticle extends React.Component {
               </div>
             </nav>
             <div className="header row justify-content-center">
-              <h1>Create a new Article</h1>
+              <h2>Create new Article</h2>
             </div>
             <div className="new-article-form row justify-content-center">
               <form method="POST" action="/">
@@ -58,7 +58,7 @@ class Newarticle extends React.Component {
                   <textarea rows="10" cols="80" type="text" id="article-content" name="content"></textarea>
                 </div>
                 <div>
-                  <input type="submit" value="submit"></input>
+                  <input type="submit" value="Create"></input>
                 </div>
               </form>
             </div>

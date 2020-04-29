@@ -14,6 +14,7 @@
 
 const pg = require('pg');
 const url = require('url');
+const sha256 = require('js-sha256');
 
 var configs;
 
@@ -64,7 +65,7 @@ pool.on('error', function (err) {
 
 const allModelsFunction = require('./models/models');
 
-const modelsObject = allModelsFunction( pool );
+const modelsObject = allModelsFunction( pool, sha256 );
 
 
 

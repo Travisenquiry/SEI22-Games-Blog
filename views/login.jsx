@@ -51,7 +51,7 @@ class Login extends React.Component {
                 </div>
                 <div>
                   Password:{' '}
-                  <input type="text" name="password"></input>
+                  <input type="password" name="password"></input>
                 </div>
                 <div className="row justify-content-center">
                   <input type="submit" value="Login"></input>

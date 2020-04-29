@@ -12,26 +12,38 @@ module.exports = (db) => {
       });
   };*/
 
-  let showHomePageControllerCallback = (request, response) =>  {
+  let getHomePageControllerCallback = (request, response) =>  {
     response.render('home');
   };
 
-  let showNewArticleControllerCallback = (request,response) => {
+  let getNewArticlePageControllerCallback = (request,response) => {
     response.render('newarticle');
   };
 
-  let submitNewArticleControllerCallback = (request, response) => {
+  /*let submitNewArticleControllerCallback = (request, response) => {
 
-  };
+  };*/
 
-  let showLoginPageControllerCallback = (request, response) => {
+  let getLoginPageControllerCallback = (request, response) => {
     response.render('login');
   };
 
-  let showRegisterPageControllerCallback = (request, response) => {
+  let getRegisterPageControllerCallback = (request, response) => {
     response.render('register');
   };
 
+  let postRegisterPageControllerCallback = (request,response) => {
+    db.models.postRegisterPage(request, response, (error, result) => {
+      if(error) {
+        console.log('Query error', error.message);
+        response.send("query error");
+      }else {
+        response.cookie('username', result.rows[0].username);
+        response.cookie('userstatus', result.rows[0].status);
+        response.redirect('/');
+      }
+    });
+  };
 
 /**
  * ===========================================
@@ -39,10 +51,11 @@ module.exports = (db) => {
  * ===========================================
  */
   return {
-    showHomePage: showHomePageControllerCallback,
-    showNewArticle: showNewArticleControllerCallback,
-    showLoginPage: showLoginPageControllerCallback,
-    showRegisterPage: showRegisterPageControllerCallback
+    getHomePage: getHomePageControllerCallback,
+    getNewArticlePage: getNewArticlePageControllerCallback,
+    getLoginPage: getLoginPageControllerCallback,
+    getRegisterPage: getRegisterPageControllerCallback,
+    postRegisterPage: postRegisterPageControllerCallback
   };
 
 }

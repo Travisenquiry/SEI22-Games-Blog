@@ -3,7 +3,7 @@
  * Export model functions as a module
  * ===========================================
  */
-module.exports = (pool) => {
+module.exports = (pool, sha256) => {
 
   // `dbPoolInstance` is accessible within this function scope
 
@@ -32,12 +32,35 @@ module.exports = (pool) => {
     });
   }; */
 
-  let submitNewArticle = (request, response, callback) => {
+  /*let postNewArticle = (request, response, callback) => {
 
+  };*/
+
+  let postRegisterPage = (request, response, callback) => {
+    let queryString = "INSERT INTO users (username, password, status) VALUES ($1, $2, $3)";
+    let passwordValue = sha256(request.body.password);
+    let values = [request.body.username, passwordValue, "standard"];
+    pool.query(queryString, values, (error, result) => {
+      if(error) {
+          callback(error, null);
+      }else {
+        queryString = "SELECT * FROM users WHERE username = '" + request.body.username + "'";
+        pool.query(queryString, (error, result) => {
+          if(error) {
+            callback(error, null);
+          }else if(result.rows.length > 0) {
+            callback(null, result);
+          }else {
+            callback(null, null);
+          }
+        });
+      }
+    });
   };
 
   return {
     //getAll:getAll,
-    submitNewArticle: submitNewArticle
+    //postNewArticlePage: postNewArticlePage,
+    postRegisterPage: postRegisterPage
   };
 };
