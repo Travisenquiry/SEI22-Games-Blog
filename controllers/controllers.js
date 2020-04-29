@@ -59,8 +59,13 @@ module.exports = (db) => {
           response.redirect('/');
         }
       }
-
     });
+  };
+
+  let postLogoutPageControllerCallback = (request, response) => {
+    response.clearCookie('username');
+    response.clearCookie('userstatus');
+    response.redirect('/login');
   };
 
 /**
@@ -74,7 +79,8 @@ module.exports = (db) => {
     getLoginPage: getLoginPageControllerCallback,
     getRegisterPage: getRegisterPageControllerCallback,
     postRegisterPage: postRegisterPageControllerCallback,
-    postLoginPage: postLoginPageControllerCallback
+    postLoginPage: postLoginPageControllerCallback,
+    postLogoutPage: postLogoutPageControllerCallback
   };
 
 }
