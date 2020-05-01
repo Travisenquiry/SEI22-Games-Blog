@@ -18,11 +18,28 @@ module.exports = (db) => {
       if(error) {
         console.log("Query error", error.message);
         response.send("query error");
-      }else {
+      }else if(result !== null){
         let data = {
           "articles": result.rows
         };
         response.render('home', data);
+      }else {
+        let data = undefined;
+        response.render('home', data);
+      }
+    });
+  };
+
+  let getArticlePageControllerCallback = (request, response) => {
+    db.models.getArticlePage(request, response, (error, result) => {
+      if(error) {
+        console.log("Query error", error.message);
+        response.send("query error");
+      }else {
+        let data = {
+          "article": result.rows
+        };
+        response.render('articles', data);
       }
     });
   };
@@ -61,7 +78,6 @@ module.exports = (db) => {
         console.log('Query error', error.message);
         response.send("query, error");
       }else {
-        console.log(result);
         if(result === null){
           response.redirect('/login');
         }else {
@@ -98,6 +114,7 @@ module.exports = (db) => {
  */
   return {
     getHomePage: getHomePageControllerCallback,
+    getArticlePage: getArticlePageControllerCallback,
     getNewArticlePage: getNewArticlePageControllerCallback,
     getLoginPage: getLoginPageControllerCallback,
     getRegisterPage: getRegisterPageControllerCallback,

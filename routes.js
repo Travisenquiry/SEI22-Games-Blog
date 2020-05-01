@@ -17,6 +17,7 @@ module.exports = (app, allModels) => {
 
   //All GET routes
   app.get('/articles/new', controllerCallbacks.getNewArticlePage);
+  app.get('/articles/view/:id', controllerCallbacks.getArticlePage);
   app.get('/login', controllerCallbacks.getLoginPage);
   app.get('/register', controllerCallbacks.getRegisterPage);
   app.get('/', controllerCallbacks.getHomePage);

@@ -1,7 +1,3 @@
-#article-content {
-
-}
-
 .link-button {
   background: none;
   border: none;
@@ -24,8 +20,13 @@
 	border-top: 0;
 }
 
-div.row {
+.article-list {
+	object-fit: cover;
+}
+
+div.article {
 	border-bottom:1px rgb(229, 229, 229) solid;
+	margin-top: 25px;
 }
 
 body {
