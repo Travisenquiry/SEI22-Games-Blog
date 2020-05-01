@@ -20,7 +20,8 @@ module.exports = (db) => {
         response.send("query error");
       }else if(result !== null){
         const data = {
-          "articles": result.rows
+          "articles": result.rows,
+          "status": request.cookies["userstatus"]
         };
         response.render('home', data);
       }else {
@@ -36,7 +37,8 @@ module.exports = (db) => {
         console.log("Query error", error.message);
       }else {
         const data = {
-          "article": result.rows
+          "article": result.rows,
+          "status": request.cookies["userstatus"]
         };
         response.render('articles', data);
       }
@@ -44,7 +46,10 @@ module.exports = (db) => {
   };
 
   let getNewArticlePageControllerCallback = (request,response) => {
-    response.render('newarticle');
+    const data = {
+      "status": request.cookies["userstatus"]
+    };
+    response.render('newarticle', data);
   };
 
   let getLoginPageControllerCallback = (request, response) => {
