@@ -51,7 +51,7 @@ module.exports = (pool, sha256) => {
   };
 
   let getArticlePage = (request, response, callback) => {
-    let queryString = "SELECT * FROM articles WHERE id = " + request.params.id;
+    let queryString = "SELECT articles.*, users.username FROM articles INNER JOIN users ON (articles.user_id = users.id) WHERE articles.id = " + request.params.id;
     pool.query(queryString, (error, result) => {
       if(error) {
         callback(error, null);

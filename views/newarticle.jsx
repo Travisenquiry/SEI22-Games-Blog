@@ -45,16 +45,16 @@ class Newarticle extends React.Component {
                 </ul>
               </div>
             </nav>
-            <div className="header row justify-content-center">
+            <div className="header row-10">
               <h2>Create new Article</h2>
             </div>
-            <div className="new-article-form row justify-content-center">
+            <div className="new-article-form row-10 justify-content-center">
               <form method="POST" action="/">
                 <div>Title</div>
                 <div>
                   <input type="text" name="title"></input>
                 </div>
-                <div>Banner image link</div>
+                <div>Banner image link (Size: 1600x900)</div>
                 <div>
                   <input type="text" name="image"></input>
                 </div>

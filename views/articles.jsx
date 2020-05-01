@@ -45,6 +45,16 @@ class Articles extends React.Component {
                 </ul>
               </div>
             </nav>
+            <div className="row">
+              <div className="col">
+                <h2>{this.props.article[0].title}</h2>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <h5>By: {this.props.article[0].username}</h5>
+              </div>
+            </div>
             <div className="row justify-content-center">
               <div className="col-10 article">
                 <img src={this.props.article[0].img} className="img-fluid" />
