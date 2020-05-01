@@ -46,18 +46,34 @@ module.exports = (db) => {
   };
 
   let getNewArticlePageControllerCallback = (request,response) => {
-    const data = {
-      "status": request.cookies["userstatus"]
-    };
-    response.render('newarticle', data);
+    let status = request.cookies["userstatus"];
+    if (status === "admin"){
+      const data = {
+        "status": status
+      };
+      response.render('newarticle', data);
+    }else {
+      response.redirect('/');
+    }
   };
 
   let getLoginPageControllerCallback = (request, response) => {
-    response.render('login');
+    let status = request.cookies["userstatus"];
+    if(status === undefined){
+      response.render('login');
+    }else {
+      response.redirect('/');
+    }
   };
 
   let getRegisterPageControllerCallback = (request, response) => {
-    response.render('register');
+    let status = request.cookies["userstatus"];
+    if(status === undefined){
+      response.render('register');
+    }else {
+      response.redirect('/');
+    }
+
   };
 
 
