@@ -92,6 +92,7 @@ module.exports = (db) => {
   let postLogoutPageControllerCallback = (request, response) => {
     response.clearCookie('username');
     response.clearCookie('userstatus');
+    response.clearCookie('userid');
     response.redirect('/login');
   };
 

@@ -1,20 +1,7 @@
 var React = require("react");
-var ArticleComponent = require("./components/articlecomponent");
-var Layout;
 
-
-
-class Home extends React.Component {
+class Layoutanonymous extends React.Component {
   render() {
-    let allArticles;
-    if(this.props.articles === undefined){
-      allArticles = <div className="row justify-content-center">No article yet!</div>
-    }else {
-      allArticles = this.props.articles.map(article => {
-        return <ArticleComponent title={article.title} image={article.img} id={article.id}>
-            </ArticleComponent>
-      });
-    }
     return (
       <html>
         <head>
@@ -44,21 +31,10 @@ class Home extends React.Component {
                   <li className="nav-item">
                     <a className="nav-link" href="/register">Register</a>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/articles/new">Create Article</a>
-                  </li>
-                  <li className="nav-item">
-                    <form method="POST" action="/logout">
-                      <div>
-                        <input type="hidden" name="extra_logout_param"></input>
-                      </div>
-                      <input type="submit" className="nav-item link-button" value="Logout"></input>
-                    </form>
-                  </li>
                 </ul>
               </div>
             </nav>
-            {allArticles}
+            {this.props.children}
           </div>
           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -69,4 +45,4 @@ class Home extends React.Component {
   }
 }
 
-module.exports = Home;
+module.exports = Layoutanonymous;
