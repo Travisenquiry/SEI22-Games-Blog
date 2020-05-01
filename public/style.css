@@ -24,6 +24,10 @@
 	object-fit: cover;
 }
 
+.headline {
+	color:black;
+}
+
 div.article {
 	border-bottom:1px rgb(229, 229, 229) solid;
 	margin-top: 25px;

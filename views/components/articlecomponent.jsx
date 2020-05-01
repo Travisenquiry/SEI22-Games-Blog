@@ -7,7 +7,7 @@ class Articlecomponent extends React.Component {
       <div className="row justify-content-center article">
         <div className="col-10 justify-content-center">
           <a href={articleLink}><img src={this.props.image} className=" img-fluid" /></a>
-          <h2>{this.props.title}</h2>
+          <h2><a className="headline" href={articleLink}>{this.props.title}</a></h2>
         </div>
       </div>
     );

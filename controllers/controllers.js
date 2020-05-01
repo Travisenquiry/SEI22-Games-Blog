@@ -19,12 +19,12 @@ module.exports = (db) => {
         console.log("Query error", error.message);
         response.send("query error");
       }else if(result !== null){
-        let data = {
+        const data = {
           "articles": result.rows
         };
         response.render('home', data);
       }else {
-        let data = undefined;
+        const data = undefined;
         response.render('home', data);
       }
     });
@@ -34,9 +34,8 @@ module.exports = (db) => {
     db.models.getArticlePage(request, response, (error, result) => {
       if(error) {
         console.log("Query error", error.message);
-        response.send("query error");
       }else {
-        let data = {
+        const data = {
           "article": result.rows
         };
         response.render('articles', data);
