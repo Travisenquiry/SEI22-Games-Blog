@@ -1,7 +1,17 @@
 var React = require("react");
+var ArticleComponent = require("./components/articlecomponent");
 
 class Home extends React.Component {
   render() {
+    let allArticles;
+    if(this.props.articles === undefined){
+      allArticles = <div className="row justify-content-center">No article yet!</div>
+    }else {
+      allArticles = this.props.articles.map(article => {
+        return <ArticleComponent title={article.title} image={article.img} id={article.id}>
+            </ArticleComponent>
+      });
+    }
     return (
       <html>
         <head>
@@ -45,12 +55,7 @@ class Home extends React.Component {
                 </ul>
               </div>
             </nav>
-            <div className="article1 row justify-content-center">
-              Hello
-            </div>
-            <div className="article2 row justify-content-center">
-              hello2
-            </div>
+            {allArticles}
           </div>
           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

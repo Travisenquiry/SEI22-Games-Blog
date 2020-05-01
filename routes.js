@@ -25,6 +25,7 @@ module.exports = (app, allModels) => {
   app.post('/register', controllerCallbacks.postRegisterPage);
   app.post('/login', controllerCallbacks.postLoginPage);
   app.post('/logout', controllerCallbacks.postLogoutPage);
+  app.post('/', controllerCallbacks.postArticlePage);
   //app.post('/', controllerCallBacks.submitNewArticle);
 
   //app.get('/pokemons', pokemonControllerCallbacks.index);

@@ -36,6 +36,21 @@ module.exports = (pool, sha256) => {
 
   };*/
 
+  //All GET models
+  let getHomePage = (request, response, callback) => {
+    let queryString = "SELECT * FROM articles";
+    pool.query(queryString, (error, result) => {
+      if(error) {
+        callback(error, null);
+      }else if(result.rows.length > 0) {
+        callback(null, result);
+      }else {
+        callback(null, null);
+      }
+    });
+  };
+
+  //All POST models
   let postRegisterPage = (request, response, callback) => {
     let queryString = "INSERT INTO users (username, password, status) VALUES ($1, $2, $3)";
     let passwordValue = sha256(request.body.password);
@@ -72,10 +87,24 @@ module.exports = (pool, sha256) => {
     });
   };
 
+  let postArticlePage = (request, response, callback) => {
+    let queryString = "INSERT INTO articles (user_id, title, content, img) VALUES ($1, $2, $3, $4)";
+    let values = [request.cookies["userid"], request.body.title, request.body.content, request.body.image];
+    pool.query(queryString, values, (error, result) => {
+      if(error) {
+        callback(error, null);
+      }else {
+        callback(null, null);
+      }
+    });
+  };
+
   return {
     //getAll:getAll,
     //postNewArticlePage: postNewArticlePage,
+    getHomePage: getHomePage,
     postRegisterPage: postRegisterPage,
-    postLoginPage: postLoginPage
+    postLoginPage: postLoginPage,
+    postArticlePage: postArticlePage
   };
 };

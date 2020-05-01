@@ -14,7 +14,17 @@ module.exports = (db) => {
 
 //All GET controllers
   let getHomePageControllerCallback = (request, response) =>  {
-    response.render('home');
+    db.models.getHomePage(request, response, (error, result) => {
+      if(error) {
+        console.log("Query error", error.message);
+        response.send("query error");
+      }else {
+        let data = {
+          "articles": result.rows
+        };
+        response.render('home', data);
+      }
+    });
   };
 
   let getNewArticlePageControllerCallback = (request,response) => {
@@ -39,6 +49,7 @@ module.exports = (db) => {
       }else {
         response.cookie('username', result.rows[0].username);
         response.cookie('userstatus', result.rows[0].status);
+        response.cookie('userid', result.rows[0].id);
         response.redirect('/');
       }
     });
@@ -56,6 +67,7 @@ module.exports = (db) => {
         }else {
           response.cookie('username', result.rows[0].username);
           response.cookie('userstatus', result.rows[0].status);
+          response.cookie('userid', result.rows[0].id);
           response.redirect('/');
         }
       }
@@ -66,6 +78,17 @@ module.exports = (db) => {
     response.clearCookie('username');
     response.clearCookie('userstatus');
     response.redirect('/login');
+  };
+
+  let postArticlePageControllerCallback = (request, response) => {
+    db.models.postArticlePage(request, response, (error, result) => {
+      if(error) {
+        console.log("Query error:", error.message);
+        response.send("query error");
+      }else {
+        response.redirect('/');
+      }
+    });
   };
 
 /**
@@ -80,7 +103,8 @@ module.exports = (db) => {
     getRegisterPage: getRegisterPageControllerCallback,
     postRegisterPage: postRegisterPageControllerCallback,
     postLoginPage: postLoginPageControllerCallback,
-    postLogoutPage: postLogoutPageControllerCallback
+    postLogoutPage: postLogoutPageControllerCallback,
+    postArticlePage: postArticlePageControllerCallback
   };
 
 }

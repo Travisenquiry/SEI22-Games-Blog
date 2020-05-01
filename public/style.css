@@ -20,6 +20,14 @@
   color:#b9bec2;
 }
 
+.row + .row {
+	border-top: 0;
+}
+
+div.row {
+	border-bottom:1px rgb(229, 229, 229) solid;
+}
+
 body {
 
 }
