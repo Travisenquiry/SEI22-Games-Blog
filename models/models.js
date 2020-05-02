@@ -63,6 +63,19 @@ module.exports = (pool, sha256) => {
     });
   };
 
+   let getArticleCommentPage = (request, response, callback) => {
+    let queryString = "SELECT comments.*, users.username FROM comments LEFT JOIN  users ON (comments.user_id = users.id) WHERE comments.article_id = " + request.params.id;
+    pool.query(queryString, (error, result) => {
+      if(error) {
+        callback(error, null);
+      }else if(result.rows.length > 0) {
+        callback(null, result);
+      }else {
+        callback(null, null);
+      }
+    });
+  };
+
   //All POST models
   let postCommentPage = (request, response, callback) => {
     let queryString = "INSERT INTO comments (article_id, user_id, message) VALUES ($1, $2, $3)";
@@ -131,6 +144,7 @@ module.exports = (pool, sha256) => {
     //postNewArticlePage: postNewArticlePage,
     getHomePage: getHomePage,
     getArticlePage: getArticlePage,
+    getArticleCommentPage: getArticleCommentPage,
     postCommentPage: postCommentPage,
     postRegisterPage: postRegisterPage,
     postLoginPage: postLoginPage,

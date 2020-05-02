@@ -4,6 +4,7 @@ var Layout;
 
 class Articles extends React.Component {
   render() {
+    console.log(this.props);
     let commentBoxLink = "/articles/view/" + this.props.article[0].id;
     if(this.props.status === undefined){
       Layout = require("./components/layoutanonymous");
@@ -30,8 +31,11 @@ class Articles extends React.Component {
             <p id="content">{this.props.article[0].content}</p>
           </div>
         </div>
-        <div className="row comments justify-content-center">
-          All comments here
+        <div className ="row">
+        </div>
+        <div className="row">
+          <div className="col-10 message">
+          </div>
         </div>
         <div className="row justify-content-center add-a-comment">
           <button type="button" className="btn btn-secondary" id="comment-box-button">Add a comment</button>

@@ -36,11 +36,25 @@ module.exports = (db) => {
       if(error) {
         console.log("Query error", error.message);
       }else {
-        const data = {
-          "article": result.rows,
-          "status": request.cookies["userstatus"]
-        };
-        response.render('articles', data);
+        let article = result.rows;
+        db.models.getArticleCommentPage(request, response, (error, result) => {
+          if(error) {
+            console.log("QUERY ERROR", error.message);
+          }else {
+            let comments;
+            if(!result){
+              comments = "No comment yet";
+            }else {
+              comments = result.rows;
+            }
+            const data = {
+              "article": article,
+              "comments": comments,
+              "status": request.cookies["userstatus"]
+            };
+            response.render('articles', data);
+          }
+        });
       }
     });
   };
