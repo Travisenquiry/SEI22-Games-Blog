@@ -64,7 +64,7 @@ module.exports = (pool, sha256) => {
   };
 
    let getArticleCommentPage = (request, response, callback) => {
-    let queryString = "SELECT comments.*, users.username FROM comments LEFT JOIN  users ON (comments.user_id = users.id) WHERE comments.article_id = " + request.params.id;
+    let queryString = "SELECT comments.*, users.username FROM comments LEFT JOIN  users ON (comments.user_id = users.id) WHERE comments.article_id = " + request.params.id + " ORDER BY comments.id ASC";
     pool.query(queryString, (error, result) => {
       if(error) {
         callback(error, null);

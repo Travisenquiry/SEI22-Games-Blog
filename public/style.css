@@ -28,6 +28,11 @@
 	color:black;
 }
 
+.messages {
+	border-bottom:1px rgb(229, 229, 229) solid;
+	padding-bottom: 25px;
+}
+
 div.article {
 	border-bottom:1px rgb(229, 229, 229) solid;
 	margin-top: 25px;
