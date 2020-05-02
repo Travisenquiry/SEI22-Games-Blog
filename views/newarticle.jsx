@@ -1,8 +1,6 @@
 var React = require("react");
 var ArticleComponent = require("./components/articlecomponent");
-var Layoutanonymous = require("./components/layoutanonymous");
 var Layoutadmin = require("./components/layoutadmin");
-var Layoutstandard = require("./components/layoutstandard");
 
 class Newarticle extends React.Component {
   render() {

@@ -1,8 +1,6 @@
 var React = require("react");
 var ArticleComponent = require("./components/articlecomponent");
-var Layoutanonymous = require("./components/layoutanonymous");
-var Layoutadmin = require("./components/layoutadmin");
-var Layoutstandard = require("./components/layoutstandard");
+var Layout;
 
 class Home extends React.Component {
   render() {
@@ -16,24 +14,17 @@ class Home extends React.Component {
       });
     }
     if(this.props.status === undefined) {
-      return (
-        <Layoutanonymous>
-          {allArticles}
-        </Layoutanonymous>
-      );
+      Layout = require("./components/layoutanonymous");
     }else if(this.props.status === "admin"){
-      return (
-        <Layoutadmin>
-          {allArticles}
-        </Layoutadmin>
-      );
+      Layout = require("./components/layoutadmin");
     }else if(this.props.status === "standard") {
-      return (
-        <Layoutstandard>
-          {allArticles}
-        </Layoutstandard>
-      )
+      Layout = require("./components/layoutstandard");
     }
+    return (
+      <Layout>
+        {allArticles}
+      </Layout>
+    );
   }
 }
 
