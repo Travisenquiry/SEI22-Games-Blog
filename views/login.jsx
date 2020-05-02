@@ -19,7 +19,7 @@ class Login extends React.Component {
               <input type="password" name="password"></input>
             </div>
             <div className="row justify-content-center">
-              <input type="submit" value="Login"></input>
+              <button className="btn btn-secondary" type="submit">Login</button>
             </div>
           </form>
         </div>

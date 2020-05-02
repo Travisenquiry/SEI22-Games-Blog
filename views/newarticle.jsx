@@ -24,7 +24,7 @@ class Newarticle extends React.Component {
               <textarea rows="10" cols="80" type="text" id="article-content" name="content"></textarea>
             </div>
             <div>
-              <input type="submit" value="Create"></input>
+              <button className="btn btn-secondary" type="submit">Create</button>
             </div>
           </form>
         </div>

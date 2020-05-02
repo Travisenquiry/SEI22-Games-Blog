@@ -19,7 +19,7 @@ class Register extends React.Component {
               <input type="password" name="password"></input>
             </div>
             <div className="row justify-content-center">
-              <input type="submit" value="Register"></input>
+              <button className="btn btn-secondary" type="submit">Register</button>
             </div>
           </form>
         </div>

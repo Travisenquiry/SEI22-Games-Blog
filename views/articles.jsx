@@ -12,25 +12,45 @@ class Articles extends React.Component {
       Layout = require("./components/layoutstandard");
     }
     return (
-        <Layout>
-          <div className="row">
-            <div className="col">
-              <h2>{this.props.article[0].title}</h2>
-            </div>
+      <Layout>
+        <div className="row">
+          <div className="col">
+            <h2>{this.props.article[0].title}</h2>
           </div>
-          <div className="row">
-            <div className="col">
-              <h5>By: {this.props.article[0].username}</h5>
-            </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h5>By: {this.props.article[0].username}</h5>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-10 article">
-              <img src={this.props.article[0].img} className="img-fluid" />
-              <p id="content">{this.props.article[0].content}</p>
-            </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-10 article">
+            <img src={this.props.article[0].img} className="img-fluid" />
+            <p id="content">{this.props.article[0].content}</p>
           </div>
-        </Layout>
-      );
+        </div>
+        <div className="row comments justify-content-center">
+          All comments here
+        </div>
+        <div className="row justify-content-center add-a-comment">
+          <button type="button" class="btn btn-secondary" id="comment-box-button">Add a comment</button>
+        </div>
+        <div className="row justify-content-center" id="comment-form" style={{visibility: 'hidden'}}>
+          <h3>Add your comment</h3>
+          <form id="comment-box" method="POST" action="/article/comment">
+            <div>
+              <input type="text" name="article_id" value={this.props.article[0].id} style={{visibility: 'hidden'}}></input>
+            </div>
+            <div>
+              <textarea rows="10" cols="80" type="text" id="article-content" name="comment-content"></textarea>
+            </div>
+            <div className="row justify-content-center">
+              <button className="btn btn-secondary" type="submit">Comment</button>
+            </div>
+          </form>
+        </div>
+      </Layout>
+    );
   }
 }
 
