@@ -19,9 +19,3 @@ CREATE TABLE IF NOT EXISTS comments (
 	user_id INTEGER,
 	message TEXT
 );
-
-CREATE TABLE IF NOT EXISTS favorites (
-	id SERIAL PRIMARY KEY,
-	article_id INTEGER,
-	user_id INTEGER
-);
