@@ -78,6 +78,18 @@ module.exports = (db) => {
 
 
 //All POST controllers
+  let postCommentPageControllerCallback = (request, response) => {
+    db.models.postCommentPage(request, response, (error, result) => {
+      if(error) {
+        console.log('QUERY ERROR', error.message);
+        response.send("query ERROR COMMENT");
+      }else {
+        let link = "/articles/view/" + request.params.id;
+        response.redirect(link);
+      }
+    });
+  };
+
   let postRegisterPageControllerCallback = (request,response) => {
     db.models.postRegisterPage(request, response, (error, result) => {
       if(error) {
@@ -139,6 +151,7 @@ module.exports = (db) => {
     getNewArticlePage: getNewArticlePageControllerCallback,
     getLoginPage: getLoginPageControllerCallback,
     getRegisterPage: getRegisterPageControllerCallback,
+    postCommentPage: postCommentPageControllerCallback,
     postRegisterPage: postRegisterPageControllerCallback,
     postLoginPage: postLoginPageControllerCallback,
     postLogoutPage: postLogoutPageControllerCallback,

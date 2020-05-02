@@ -23,6 +23,7 @@ module.exports = (app, allModels) => {
   app.get('/', controllerCallbacks.getHomePage);
 
   //All POST routes
+  app.post('/articles/view/:id', controllerCallbacks.postCommentPage);
   app.post('/register', controllerCallbacks.postRegisterPage);
   app.post('/login', controllerCallbacks.postLoginPage);
   app.post('/logout', controllerCallbacks.postLogoutPage);

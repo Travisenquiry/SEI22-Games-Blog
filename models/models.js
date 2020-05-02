@@ -64,6 +64,19 @@ module.exports = (pool, sha256) => {
   };
 
   //All POST models
+  let postCommentPage = (request, response, callback) => {
+    let queryString = "INSERT INTO comments (article_id, user_id, message) VALUES ($1, $2, $3)";
+    let message = request.body.message.replace(/\n\r?/g, '<br />');
+    let values = [request.body.article_id, request.cookies["userid"], message];
+    pool.query(queryString, values, (error, result) => {
+      if(error) {
+        callback(error, null);
+      }else {
+        callback(null, null);
+      }
+    });
+  };
+
   let postRegisterPage = (request, response, callback) => {
     let queryString = "INSERT INTO users (username, password, status) VALUES ($1, $2, $3)";
     let passwordValue = sha256(request.body.password);
@@ -118,6 +131,7 @@ module.exports = (pool, sha256) => {
     //postNewArticlePage: postNewArticlePage,
     getHomePage: getHomePage,
     getArticlePage: getArticlePage,
+    postCommentPage: postCommentPage,
     postRegisterPage: postRegisterPage,
     postLoginPage: postLoginPage,
     postArticlePage: postArticlePage

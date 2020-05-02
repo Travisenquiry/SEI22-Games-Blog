@@ -4,6 +4,7 @@ var Layout;
 
 class Articles extends React.Component {
   render() {
+    let commentBoxLink = "/articles/view/" + this.props.article[0].id;
     if(this.props.status === undefined){
       Layout = require("./components/layoutanonymous");
     }else if(this.props.status === "admin") {
@@ -33,16 +34,16 @@ class Articles extends React.Component {
           All comments here
         </div>
         <div className="row justify-content-center add-a-comment">
-          <button type="button" class="btn btn-secondary" id="comment-box-button">Add a comment</button>
+          <button type="button" className="btn btn-secondary" id="comment-box-button">Add a comment</button>
         </div>
         <div className="row justify-content-center" id="comment-form" style={{visibility: 'hidden'}}>
           <h3>Add your comment</h3>
-          <form id="comment-box" method="POST" action="/article/comment">
+          <form id="comment-box" method="POST" action={commentBoxLink}>
             <div>
               <input type="text" name="article_id" value={this.props.article[0].id} style={{visibility: 'hidden'}}></input>
             </div>
             <div>
-              <textarea rows="10" cols="80" type="text" id="article-content" name="comment-content"></textarea>
+              <textarea rows="10" cols="80" type="text" id="article-content" name="message"></textarea>
             </div>
             <div className="row justify-content-center">
               <button className="btn btn-secondary" type="submit">Comment</button>
