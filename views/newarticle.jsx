@@ -16,8 +16,10 @@ class Newarticle extends React.Component {
               <input type="text" name="title"></input>
             </div>
             <div>Banner image link (Size: 1600x900)</div>
+            <div id="image-after-upload"></div>
             <div>
-              <input type="text" name="image"></input>
+              <button type="button" id="upload_widget" class="cloudinary-button">Upload files</button>
+              <input type="text" name="image" id="image-link" style={{visibility:"hidden"}}></input>
             </div>
             <div>
               <div>Content</div>

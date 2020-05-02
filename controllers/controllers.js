@@ -25,7 +25,9 @@ module.exports = (db) => {
         };
         response.render('home', data);
       }else {
-        const data = undefined;
+        const data = {
+          "status": request.cookies["userstatus"]
+        };
         response.render('home', data);
       }
     });

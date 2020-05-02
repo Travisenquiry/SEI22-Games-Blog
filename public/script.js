@@ -5,8 +5,10 @@ for(let i=0; i < value.length; i++){
 }
 
 //adds event listener to add a comment button
-document.getElementById("comment-box-button").addEventListener("click", () => {
-    document.getElementById("comment-box-button").style.visibility = "hidden";
-    document.getElementById("comment-form").style.visibility = "visible";
-    document.getElementById("comment-form-header").style.visibility = "visible";
-});
+if(document.getElementById("comment-box-button")) {
+  document.getElementById("comment-box-button").addEventListener("click", () => {
+      document.getElementById("comment-box-button").style.visibility = "hidden";
+      document.getElementById("comment-form").style.visibility = "visible";
+      document.getElementById("comment-form-header").style.visibility = "visible";
+  });
+}

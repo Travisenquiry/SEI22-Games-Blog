@@ -13,6 +13,7 @@ class Home extends React.Component {
             </ArticleComponent>
       });
     }
+    console.log(this.props);
     if(this.props.status === undefined) {
       Layout = require("./components/layoutanonymous");
     }else if(this.props.status === "admin"){
