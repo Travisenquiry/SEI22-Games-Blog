@@ -38,7 +38,7 @@ module.exports = (pool, sha256) => {
 
   //All GET models
   let getHomePage = (request, response, callback) => {
-    let queryString = "SELECT * FROM articles";
+    let queryString = "SELECT * FROM articles ORDER BY id DESC";
     pool.query(queryString, (error, result) => {
       if(error) {
         callback(error, null);
